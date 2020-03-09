@@ -32,15 +32,15 @@ echo "livearch init"
 echo ""
 echo "Setting keymap"
 read -r -p "Set keymap: [no-latin1]" skm
-if [[ !-z $skm ]]
+if [[ -z $skm ]]
 then
+	loadkeys no-latin1
+else
 	loadkeys $skm
 	if [[ $? != "0" ]]
 	then
 		echo "Error setting keymap, try doing it manually!"
 	fi
-else
-	loadkeys no-latin1
 fi
 
 echo "Extending live root partition"
