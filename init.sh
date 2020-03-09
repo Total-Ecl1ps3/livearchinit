@@ -66,9 +66,15 @@ echo ""
 echo "Fetching packages"
 pacman -Syy
 pacman -S pacman-contrib --noconfirm
-echo "Ranking mirrors based on speed"
-cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.back
-rankmirrors -n 5 -m 1.5 -v /etc/pacman.d/mirrorlist.back | tee /etc/pacman.d/mirrorlist
+echo "Rank mirrors? "
+
+ync
+if [[ $input1a =~ [y] ]]
+then
+	echo "Ranking mirrors based on speed"
+	cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.back
+	rankmirrors -n 5 -m 1.5 -v /etc/pacman.d/mirrorlist.back | tee /etc/pacman.d/mirrorlist
+fi
 
 echo "Installing basepackages"
 pacman -S i3 dmenu xorg-xinit xorg-server xorg-xrandr arandr firefox ttf-dejavu terminator tmux --noconfirm
