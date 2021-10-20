@@ -77,7 +77,7 @@ then
 fi
 
 echo "Installing basepackages"
-pacman -S i3 dmenu xorg-xinit xorg-server xorg-xrandr arandr firefox ttf-dejavu terminator tmux --noconfirm
+pacman -S i3 dmenu xorg-xinit xorg-server xorg-xrandr arandr firefox ttf-dejavu terminator tmux dbus xf86-video-intel --noconfirm
 
 echo 'exec /usr/bin/i3' > ~/.xinitrc
 passwd
