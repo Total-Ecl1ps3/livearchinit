@@ -34,7 +34,7 @@ echo "Setting keymap"
 read -r -p "Set keymap: [no-latin1]" skm
 if [[ -z $skm ]]
 then
-	loadkeys no-latin1
+	loadkeys de
 else
 	loadkeys $skm
 	if [[ $? != "0" ]]
